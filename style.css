@@ -1,14 +1,3 @@
-:root {
-    --bg: #f5e7d3; /* Light brown background */
-    --text: #1a1a1a;
-    --subtext: #555;
-    --accent: #8b4513; /* Darker brown for accent color */
-    --accent-light: #c09e6f; /* Lighter brown for secondary accent */
-    --card: #ffffff;
-    --radius: 10px;
-    --max-width: 900px;
-}
-
 body {
     margin: 0;
     padding: 0;
