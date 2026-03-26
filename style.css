@@ -1,12 +1,10 @@
 :root {
-    --bg: #f5f7fa;
-    --text: #1a1a1a; /* Keeping text color as it is for readability */
+    --bg: #f5e7d3; /* Light brown background */
+    --text: #1a1a1a;
     --subtext: #555;
-    --accent: #2a6fdb; /* Primary accent color */
-    --accent-light: #e8f0ff;
+    --accent: #8b4513; /* Darker brown for accent color */
+    --accent-light: #c09e6f; /* Lighter brown for secondary accent */
     --card: #ffffff;
-    --secondary-accent: #d3dde3; /* Light grey as secondary accent */
-    --highlight: #7eadcc; /* Soft blue for highlights */
     --radius: 10px;
     --max-width: 900px;
 }
@@ -30,7 +28,7 @@ body {
 .header {
     text-align: center;
     padding: 40px 20px;
-    background: var(--accent);
+    background: var(--accent); /* Darker brown for header background */
     color: white;
     border-radius: 0 0 var(--radius) var(--radius);
 }
@@ -63,7 +61,7 @@ body {
 
 .section h2 {
     margin-top: 0;
-    color: var(--accent);
+    color: var(--accent); /* Darker brown for section titles */
     font-size: 1.6rem;
 }
 
@@ -93,11 +91,11 @@ ul, ol {
 
 .project-card h3 {
     margin-top: 0;
-    color: var(--accent);
+    color: var(--accent); /* Darker brown for project card titles */
 }
 
 .project-card a {
-    color: var(--highlight); /* Using soft blue for links */
+    color: var(--accent-light); /* Lighter brown for links in the project cards */
     font-weight: bold;
 }
 
