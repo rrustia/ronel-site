@@ -1,10 +1,12 @@
 :root {
     --bg: #f5f7fa;
-    --text: #1a1a1a;
+    --text: #1a1a1a; /* Keeping text color as it is for readability */
     --subtext: #555;
-    --accent: #2a6fdb;
+    --accent: #2a6fdb; /* Primary accent color */
     --accent-light: #e8f0ff;
     --card: #ffffff;
+    --secondary-accent: #d3dde3; /* Light grey as secondary accent */
+    --highlight: #7eadcc; /* Soft blue for highlights */
     --radius: 10px;
     --max-width: 900px;
 }
@@ -95,7 +97,7 @@ ul, ol {
 }
 
 .project-card a {
-    color: var(--accent);
+    color: var(--highlight); /* Using soft blue for links */
     font-weight: bold;
 }
 
