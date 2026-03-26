@@ -81,5 +81,26 @@
     <p><strong>Phone:</strong> +1 (408) 568-9796</p>
 </div>
 
+<script>
+async function loadProjects() {
+  const res = await fetch("https://ronelprojects.netlify.app/.netlify/functions/getProjects");
+  const projects = await res.json();
+
+  const container = document.getElementById("projects");
+
+  projects.forEach(p => {
+    const card = document.createElement("div");
+    card.innerHTML = `
+      <h3>${p.title}</h3>
+      <p>${p.description}</p>
+      <a href="${p.link}" target="_blank">View Project</a>
+    `;
+    container.appendChild(card);
+  });
+}
+
+loadProjects();
+</script>
+
 </body>
 </html>
