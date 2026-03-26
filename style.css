@@ -1,23 +1,49 @@
+/* ==========================================================
+    GLOBAL THEME VARIABLES
+   ---------------------------------------------------------- */
+:root {
+    /* Base colours – all are warm, muted tones */
+    --bg          : #f7f6f4;      /* light parchment‑white */
+    --text        : #3b3835;      /* dark charcoal for legibility */
+    --accent      : #a18673;      /* soft brown (header & section titles) */
+    --accent-light: #c8b8a9;      /* lighter brown for links */
+    --card        : #ffffff;      /* pure white cards for contrast */
+    --radius      : 12px;
+    --max-width   : 900px;
+
+    /* Optional subtle gradient background (uncomment to use) */
+    /*--bg-gradient: linear-gradient(135deg, #f7f6f4 0%, #e9e5d8 100%);*/
+}
+
+/* ==========================================================
+   BASIC RESET & BODY
+   ---------------------------------------------------------- */
 body {
     margin: 0;
     padding: 0;
     font-family: system-ui, sans-serif;
-    background: var(--bg);
+    background: var(--bg);            /* or use var(--bg-gradient) */
     color: var(--text);
     line-height: 1.6;
 }
 
+/* ==========================================================
+   CONTAINER
+   ---------------------------------------------------------- */
 .container {
     max-width: var(--max-width);
     margin: 0 auto;
     padding: 20px;
 }
 
-/* Header */
+/* ==========================================================
+   HEADER – soft‑brown background, rounded corners
+   ---------------------------------------------------------- */
 .header {
     text-align: center;
     padding: 40px 20px;
-    background: var(--accent); /* Darker brown for header background */
+    /* subtle gradient for a touch of depth */
+    background: linear-gradient(135deg, #d9c3a1, #bfa08e);
     color: white;
     border-radius: 0 0 var(--radius) var(--radius);
 }
@@ -28,37 +54,41 @@ body {
     font-weight: 700;
 }
 
-.header p {
-    margin: 8px 0;
-    font-size: 1.1rem;
-    opacity: 0.9;
+.header p,
+.header a {
+    opacity: 0.9; /* slightly lighter text */
 }
 
 .header a {
-    color: white;
+    color: #fff;
     text-decoration: underline;
 }
 
-/* Sections */
+/* ==========================================================
+   SECTION BLOCKS – soft white cards with subtle shadow
+   ---------------------------------------------------------- */
 .section {
     background: var(--card);
     padding: 20px;
     margin-top: 30px;
     border-radius: var(--radius);
-    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08); /* light drop‑shadow */
 }
 
 .section h2 {
     margin-top: 0;
-    color: var(--accent); /* Darker brown for section titles */
+    color: var(--accent);          /* soft brown titles */
     font-size: 1.6rem;
 }
 
-ul, ol {
-    padding-left: 20px;
-}
+/* ==========================================================
+   LISTS
+   ---------------------------------------------------------- */
+ul, ol { padding-left: 20px; }
 
-/* Projects Grid */
+/* ==========================================================
+   PROJECT GRID & CARD STYLES
+   ---------------------------------------------------------- */
 #projects {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -71,29 +101,29 @@ ul, ol {
     padding: 16px;
     border-radius: var(--radius);
     box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-    transition: transform 0.15s ease;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
 .project-card:hover {
     transform: translateY(-4px);
+    /* gentle lift‑shadow on hover */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.10);
 }
 
 .project-card h3 {
     margin-top: 0;
-    color: var(--accent); /* Darker brown for project card titles */
+    color: var(--accent);          /* same soft brown as section titles */
 }
 
 .project-card a {
-    color: var(--accent-light); /* Lighter brown for links in the project cards */
+    color: var(--accent-light);     /* lighter brown for links */
     font-weight: bold;
 }
 
-/* Mobile adjustments */
+/* ==========================================================
+   MOBILE ADJUSTMENTS
+   ---------------------------------------------------------- */
 @media (max-width: 600px) {
-    .header h1 {
-        font-size: 1.9rem;
-    }
-    .section {
-        padding: 16px;
-    }
+    .header h1 { font-size: 1.9rem; }
+    .section  { padding: 16px; }
 }
