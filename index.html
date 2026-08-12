@@ -72,19 +72,45 @@
     </div>
 
     <script>
-    async function loadProjects() {
-      const res = await fetch("https://ronelprojects.netlify.app/.netlify/functions/getProjects");
-      const projects = await res.json();
+    // Simple project data array - easy to maintain
+    const projects = [
+      {
+        title: "Task Board (Full Stack & Docker)",
+        description: "Built a modern web task board using FastAPI, PostgreSQL, and Docker. Technologies: Python, FastAPI, PostgreSQL, Docker, JWT Authentication, HTML/CSS/JS",
+        link: "https://github.com/rrustia/frontbackdocker"
+      },
+      {
+        title: "Task Manager (Spring Boot API)",
+        description: "Developed a browser-based task manager using Spring Boot, Spring Security, and Spring Data JPA. Technologies: Java, Spring Boot, Spring Data JPA, SQL, H2 Database, Maven",
+        link: "https://github.com/rrustia/dbtesting2"
+      },
+      {
+        title: "Transaction Tracker REST API",
+        description: "Designed a RESTful API service to track and log financial transactions. Technologies: Node.js, Express, Supertest, Node Test Runner",
+        link: "https://github.com/rrustia/node1"
+      },
+      {
+        title: "C++ Backend Private Notes App",
+        description: "Implemented a full-stack note-taking application featuring a C++ backend engine. Technologies: C++, SQLite, HTML/CSS/JavaScript",
+        link: "https://github.com/rrustia/cpp1"
+      },
+      {
+        title: "Customer Information Web App",
+        description: "Created an accessible web database portal for managing customer information. Technologies: HTML, CSS, JavaScript",
+        link: "https://github.com/rrustia/webapp2"
+      }
+    ];
 
+    async function loadProjects() {
       const container = document.getElementById("projects");
 
       projects.forEach(p => {
         const card = document.createElement("div");
         card.className = "project-card";
         card.innerHTML = `
-          <h3>${p.title}</h3>
+          <h3><a href="${p.link}" target="_blank">${p.title}</a></h3>
           <p>${p.description}</p>
-          <a href="${p.link}" target="_blank">View Project</a>
+          <a href="${p.link}" target="_blank">View on GitHub</a>
         `;
         container.appendChild(card);
       });
