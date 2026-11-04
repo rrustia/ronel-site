@@ -4,21 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ronel Rustia – Resume</title>
+    <meta name="description" content="Learn about Ronel Rustia, a software developer and data analyst. Explore his experience, skills, projects, and data analytics capstones.">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Ronel Rustia – Resume">
+    <meta property="og:description" content="Software developer and data analyst. Explore Ronel Rustia’s experience, projects, and data analytics capstones.">
     <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
 
-    <div class="header">
+    <header class="header">
         <h1>Ronel Rustia</h1>
         <p>Software Developer • Data Analyst</p>
         <a href="mailto:fedstats@yahoo.com">fedstats@yahoo.com</a><br>
-        <a href="https://www.linkedin.com/in/ronel-rustia-7b9348255/" target="_blank">LinkedIn Profile</a>
-    </div>
+        <a href="https://www.linkedin.com/in/ronel-rustia-7b9348255/" target="_blank" rel="noopener noreferrer">LinkedIn Profile</a>
+    </header>
 
-    <div class="container">
+    <main class="container" id="main-content">
 
-        <div class="section">
+        <section class="section">
             <h2>Personal Information</h2>
             <p>
                 Hi there! My name is Ronel Rustia, and I’m passionate about coding, data analysis, and playing chess.
@@ -29,9 +34,9 @@
                 on the chessboard! I’m excited about the opportunities that lie ahead and am always open to new challenges
                 and learning experiences.
             </p>
-        </div>
+        </section>
 
-        <div class="section">
+        <section class="section">
             <h2>Education</h2>
             <ul>
                 <li><strong>Butte College</strong> — Associates in Computer Information</li>
@@ -42,9 +47,9 @@
                 </li>
                 <li><strong><a href="https://www.credly.com/badges/929ac3c1-cf5a-4259-999b-98b6274ca0e4" target="_blank" rel="noopener noreferrer">Google Cybersecurity</a> Course | Data Camp</strong></li>
             </ul>
-        </div>
+        </section>
 
-        <div class="section">
+        <section class="section">
             <h2>Work Experience</h2>
             <ol>
                 <li>
@@ -53,23 +58,23 @@
                     <p>Performed unit testing on IMS functions, developed backend interfaces in Java, and collaborated with team members using GitHub Enterprise.</p>
                 </li>
             </ol>
-        </div>
+        </section>
 
-        <div class="section">
+        <section class="section">
             <h2>Skills</h2>
             <ul>
                 <li>Languages: Java, JCL, Python, SQL</li>
                 <li>Agile methodology</li>
                 <li>Tools: Git, VS Code, Eclipse IDE</li>
             </ul>
-        </div>
+        </section>
 
-        <div class="section">
+        <section class="section">
             <h2>Projects</h2>
             <div id="projects"></div>
-        </div>
+        </section>
 
-        <div class="section">
+        <section class="section">
             <h2>Data Analyst Capstones</h2>
             <ul>
                 <li>
@@ -81,13 +86,12 @@
                     <p>This project examines employee turnover to understand patterns in employees leaving an organization. Its Tableau story presents the analysis through visualizations that make trends easier to explore. The findings can help guide further investigation and inform employee-retention discussions.</p>
                 </li>
             </ul>
-        </div>
+        </section>
 
         <p class="contact-link"><a href="contact.html">Contact Information</a></p>
-    </div>
+    </main>
 
     <script>
-    // Simple project data array - easy to maintain
     const projects = [
       {
         title: "Task Board (Full Stack & Docker)",
@@ -116,19 +120,36 @@
       }
     ];
 
-    async function loadProjects() {
+    function loadProjects() {
       const container = document.getElementById("projects");
+      const projectCards = document.createDocumentFragment();
 
-      projects.forEach(p => {
-        const card = document.createElement("div");
+      projects.forEach(project => {
+        const card = document.createElement("article");
         card.className = "project-card";
-        card.innerHTML = `
-          <h3><a href="${p.link}" target="_blank">${p.title}</a></h3>
-          <p>${p.description}</p>
-          <a href="${p.link}" target="_blank">View on GitHub</a>
-        `;
-        container.appendChild(card);
+        const heading = document.createElement("h3");
+        const titleLink = document.createElement("a");
+        titleLink.href = project.link;
+        titleLink.target = "_blank";
+        titleLink.rel = "noopener noreferrer";
+        titleLink.textContent = project.title;
+        heading.appendChild(titleLink);
+
+        const description = document.createElement("p");
+        description.textContent = project.description;
+
+        const projectLink = document.createElement("a");
+        projectLink.href = project.link;
+        projectLink.target = "_blank";
+        projectLink.rel = "noopener noreferrer";
+        projectLink.textContent = "View on GitHub";
+        projectLink.setAttribute("aria-label", `View ${project.title} on GitHub`);
+
+        card.append(heading, description, projectLink);
+        projectCards.appendChild(card);
       });
+
+      container.appendChild(projectCards);
     }
 
     loadProjects();

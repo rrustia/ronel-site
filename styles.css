@@ -5,7 +5,7 @@
     /* Base colours – all are warm, muted tones */
     --bg          : #f7f6f4;      /* light parchment‑white */
     --text        : #3b3835;      /* dark charcoal for legibility */
-    --accent      : #a18673;      /* soft brown (header & section titles) */
+    --accent      : #806654;      /* brown for links, buttons, and section titles */
     --accent-light: #c8b8a9;      /* lighter brown for links */
     --card        : #ffffff;      /* pure white cards for contrast */
     --radius      : 12px;
@@ -51,7 +51,7 @@ body {
     text-align: center;
     padding: clamp(28px, 6vw, 48px) 20px;
     /* subtle gradient for a touch of depth */
-    background: linear-gradient(135deg, #d9c3a1, #bfa08e);
+    background: linear-gradient(135deg, #806654, #735b4b);
     color: white;
     border-radius: 0 0 var(--radius) var(--radius);
 }
@@ -62,14 +62,25 @@ body {
     font-weight: 700;
 }
 
-.header p,
-.header a {
-    opacity: 0.9; /* slightly lighter text */
-}
-
 .header a {
     color: #fff;
     text-decoration: underline;
+}
+
+.skip-link {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    z-index: 1;
+    padding: 8px 12px;
+    transform: translateY(-150%);
+    border-radius: 6px;
+    background: #fff;
+    color: var(--text);
+}
+
+.skip-link:focus {
+    transform: translateY(0);
 }
 
 /* ==========================================================
@@ -92,6 +103,18 @@ body {
 
 a {
     color: var(--accent);
+}
+
+a:hover {
+    text-decoration-thickness: 2px;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+    outline: 3px solid #4d392b;
+    outline-offset: 3px;
 }
 
 .contact-link {
@@ -170,7 +193,7 @@ ul, ol { padding-left: 20px; }
 }
 
 .project-card a {
-    color: var(--accent-light);     /* lighter brown for links */
+    color: var(--accent);
     font-weight: bold;
     overflow-wrap: anywhere;
 }
